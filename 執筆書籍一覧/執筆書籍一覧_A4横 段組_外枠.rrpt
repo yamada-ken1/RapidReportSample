@@ -52,7 +52,6 @@
               group: {
                 caption: "明細グループ",
                 detail: true,
-                max_count: 25.0,
                 layout: {
                   max_count: 25.0,
                   y: 20.0,
