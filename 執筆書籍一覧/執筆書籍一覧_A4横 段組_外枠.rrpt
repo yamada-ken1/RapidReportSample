@@ -1,0 +1,77 @@
+{
+  version: 0,
+  paper: {
+    landscape: true,
+    margin: {bottom:20.0,left:20.0,right:20.0,top:20.0},
+    scale_unit: "point",
+    type: "a4"
+  },
+  caption: "執筆書籍一覧",
+  font: {size:14.0},
+  group: {
+    contents: [
+      {
+        size: {
+          initial: 55.0
+        },
+        caption: "ヘッダー",
+        every_page: true,
+        elements: [
+          {type:"text",layout:{x1:10.0,y1:0.0,x2:240.0,y2:20.0},distribute:true,font:{name:"gothic",size:20.0,underline:true},halign:"center",text:"執筆書籍一覧",valign:"center"},
+          {type:"text",layout:{x1:635.0,y1:0.0,x2:695.0,y2:25.0},halign:"right",text:"ページ：",valign:"center"},
+          {type:"text",layout:{x1:695.0,y1:0.0,x2:802.0,y2:25.0},caption:"ページ",halign:"right",text:"#{page_count}/#{page_count.total}",valign:"center"},
+          {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
+        ]
+      },
+      {
+        size: {
+          initial: 0.0,
+          rev_initial: true
+        },
+        aggregate_src: true,
+        caption: "ボディ",
+        group: {
+          caption: "水平方向グループ",
+          max_count: 25.0,
+          layout: {
+            direction: "horizontal"
+          },
+          contents: [
+            {
+              size: {
+                initial: 400.0
+              },
+              aggregate_src: true,
+              caption: "列見出し",
+              elements: [
+                {type:"rect",layout:{x1:0.0,y1:0.0,x2:380.0,y2:20.0},fill_color:"silver",hide_bottom:true,round:7.0},
+                {type:"text",layout:{x1:10.0,y1:0.0,x2:140.0,y2:20.0},halign:"center",text:"ISBN",valign:"center"},
+                {type:"text",layout:{x1:140.0,y1:0.0,x2:370.0,y2:20.0},halign:"center",text:"書名",valign:"center"},
+                {type:"line",layout:{x1:0.0,y1:20.0,x2:380.0,y2:20.0}}
+              ],
+              group: {
+                caption: "明細グループ",
+                detail: true,
+                layout: {
+                  y: 20.0
+                },
+                contents: [
+                  {
+                    size: {
+                      initial: 18.0
+                    },
+                    caption: "明細",
+                    elements: [
+                      {type:"field",layout:{x1:10.0,y1:0.0,x2:140.0,y2:18.0},exp:".isbn",font:{size:11.0},valign:"center"},
+                      {type:"field",layout:{x1:140.0,y1:0.0,x2:370.0,y2:18.0},exp:".bookname",font:{size:11.0},formatter:{type:"default"},shrink_to_fit:true,valign:"center"}
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
