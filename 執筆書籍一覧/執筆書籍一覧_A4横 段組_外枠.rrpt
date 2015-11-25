@@ -54,7 +54,9 @@
                 detail: true,
                 max_count: 20.0,
                 layout: {
-                  y: 20.0
+                  max_count: 20.0,
+                  y: 20.0,
+                  blank: true
                 },
                 contents: [
                   {
