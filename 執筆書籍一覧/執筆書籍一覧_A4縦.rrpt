@@ -1,0 +1,52 @@
+{
+  version: 0,
+  paper: {
+    margin: {bottom:20.0,left:20.0,right:20.0,top:20.0},
+    scale_unit: "point",
+    type: "a4"
+  },
+  caption: "執筆書籍一覧",
+  font: {size:14.0},
+  group: {
+    contents: [
+      {
+        size: {
+          initial: 55.0
+        },
+        caption: "ヘッダー",
+        every_page: true,
+        elements: [
+          {type:"text",layout:{x1:10.0,y1:0.0,x2:240.0,y2:20.0},distribute:true,font:{name:"gothic",size:20.0,underline:true},halign:"center",text:"執筆書籍一覧",valign:"center"},
+          {type:"text",layout:{x1:380.0,y1:0.0,x2:440.0,y2:25.0},halign:"right",text:"ページ：",valign:"center"},
+          {type:"text",layout:{x1:440.0,y1:0.0,x2:547.0,y2:25.0},caption:"ページ",halign:"right",text:"#{page_count}/#{page_count.total}",valign:"center"},
+          {type:"text",layout:{x1:10.0,y1:35.0,x2:140.0,y2:55.0},halign:"center",rect:{fill_color:"silver"},text:"ISBN",valign:"center"},
+          {type:"text",layout:{x1:140.0,y1:35.0,x2:545.0,y2:55.0},halign:"center",rect:{fill_color:"silver"},text:"書名",valign:"center"},
+          {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
+        ]
+      },
+      {
+        size: {
+          initial: 740.0
+        },
+        aggregate_src: true,
+        caption: "ボディ",
+        group: {
+          caption: "明細グループ",
+          detail: true,
+          contents: [
+            {
+              size: {
+                initial: 20.0
+              },
+              caption: "明細",
+              elements: [
+                {type:"field",layout:{x1:10.0,y1:0.0,x2:140.0,y2:20.0},exp:".isbn",rect:{},valign:"center"},
+                {type:"field",layout:{x1:140.0,y1:0.0,x2:545.0,y2:20.0},exp:".bookname",formatter:{type:"default"},rect:{},shrink_to_fit:true,valign:"center"}
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

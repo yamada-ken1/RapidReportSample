@@ -1,0 +1,66 @@
+{
+  version: 0,
+  paper: {
+    landscape: true,
+    margin: {bottom:20.0,left:20.0,right:20.0,top:20.0},
+    scale_unit: "point",
+    type: "a4"
+  },
+  group: {
+    contents: [
+      {
+        size: {
+          initial: 50.0
+        },
+        caption: "ヘッダー",
+        every_page: true,
+        elements: [
+          {type:"text",layout:{x1:635.0,y1:0.0,x2:695.0,y2:25.0},halign:"right",text:"ページ：",valign:"center"},
+          {type:"text",layout:{x1:695.0,y1:0.0,x2:802.0,y2:25.0},caption:"ページ",halign:"right",text:"#{page_count}/#{page_count.total}",valign:"center"},
+          {type:"text",layout:{x1:5.0,y1:5.0,x2:150.0,y2:25.0},font:{name:"gothic",size:20.0,underline:true},text:"執筆書籍一覧",valign:"center"},
+          {type:"text",layout:{x1:5.0,y1:40.0,x2:100.0,y2:50.0}},
+          {type:"text",layout:{x1:5.0,y1:38.0,x2:98.0,y2:50.0},rect:{fill_color:"silver"},text:"ISBN",valign:"center"},
+          {type:"text",layout:{x1:98.0,y1:38.0,x2:355.0,y2:50.0},rect:{fill_color:"silver"},text:"書名",valign:"center"},
+          {type:"text",layout:{x1:355.0,y1:38.0,x2:420.0,y2:50.0},rect:{fill_color:"silver"},text:"著者",valign:"center"},
+          {type:"text",layout:{x1:420.0,y1:38.0,x2:535.0,y2:50.0},rect:{fill_color:"silver"},text:"出版社",valign:"center"},
+          {type:"text",layout:{x1:535.0,y1:38.0,x2:595.0,y2:50.0},rect:{fill_color:"silver"},text:"初版発行月",valign:"center"},
+          {type:"text",layout:{x1:595.0,y1:38.0,x2:645.0,y2:50.0},rect:{fill_color:"silver"},text:"税別価格",valign:"center"},
+          {type:"text",layout:{x1:645.0,y1:38.0,x2:690.0,y2:50.0},rect:{fill_color:"silver"},text:"版形",valign:"center"},
+          {type:"text",layout:{x1:690.0,y1:38.0,x2:730.0,y2:50.0},rect:{fill_color:"silver"},text:"ページ数",valign:"center"},
+          {type:"text",layout:{x1:730.0,y1:38.0,x2:785.0,y2:50.0},rect:{fill_color:"silver"},text:"付属物",valign:"center"},
+          {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
+        ]
+      },
+      {
+        size: {
+          initial: 20.0
+        },
+        aggregate_src: true,
+        caption: "ボディ",
+        group: {
+          caption: "明細グループ",
+          detail: true,
+          contents: [
+            {
+              size: {
+                initial: 15.0
+              },
+              caption: "明細",
+              elements: [
+                {type:"field",layout:{x1:5.0,y1:0.0,x2:98.0,y2:15.0},exp:".isbn",rect:{},valign:"center"},
+                {type:"field",layout:{x1:98.0,y1:0.0,x2:355.0,y2:15.0},exp:".bookname",rect:{},shrink_to_fit:true,valign:"center"},
+                {type:"field",layout:{x1:355.0,y1:0.0,x2:420.0,y2:15.0},exp:".author",rect:{},valign:"center"},
+                {type:"field",layout:{x1:420.0,y1:0.0,x2:535.0,y2:15.0},exp:".publisher",rect:{},shrink_to_fit:true,valign:"center"},
+                {type:"field",layout:{x1:535.0,y1:0.0,x2:595.0,y2:15.0},exp:".issuedate",formatter:{format:"yyyy年MM月",type:"default"},halign:"center",rect:{},valign:"center"},
+                {type:"field",layout:{x1:595.0,y1:0.0,x2:645.0,y2:15.0},exp:".price",formatter:{format:"#,##0",type:"default"},halign:"right",rect:{},valign:"center"},
+                {type:"field",layout:{x1:645.0,y1:0.0,x2:690.0,y2:15.0},exp:".psize",rect:{},valign:"center"},
+                {type:"field",layout:{x1:690.0,y1:0.0,x2:730.0,y2:15.0},exp:".ppages",formatter:{format:"#,##0",type:"default"},halign:"right",rect:{},valign:"center"},
+                {type:"field",layout:{x1:730.0,y1:0.0,x2:785.0,y2:15.0},exp:".attached",rect:{},valign:"center"}
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
