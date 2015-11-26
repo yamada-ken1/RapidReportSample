@@ -64,9 +64,9 @@
                     },
                     caption: "明細",
                     elements: [
+                      {type:"rect",layout:{x1:0.0,y1:0.0,x2:380.0,y2:15.0},customize:[{cond:"(not state.last2)",exp:"true",property:"hide_bottom"}],hide_top:true,round:7.0},
                       {type:"field",layout:{x1:10.0,y1:0.0,x2:140.0,y2:15.0},exp:".isbn",font:{size:11.0},valign:"center"},
-                      {type:"field",layout:{x1:140.0,y1:0.0,x2:370.0,y2:15.0},exp:".bookname",font:{size:11.0},formatter:{type:"default"},shrink_to_fit:true,valign:"center"},
-                      {type:"rect",layout:{x1:0.0,y1:0.0,x2:380.0,y2:15.0},customize:[{cond:"(not state.last2)",exp:"true",property:"hide_bottom"}],hide_top:true,round:7.0}
+                      {type:"field",layout:{x1:140.0,y1:0.0,x2:370.0,y2:15.0},exp:".bookname",font:{size:11.0},formatter:{type:"default"},shrink_to_fit:true,valign:"center"}
                     ]
                   }
                 ]
