@@ -1,0 +1,126 @@
+{
+  version: 0,
+  paper: {
+    landscape: true,
+    margin: {bottom:20.0,left:20.0,right:20.0,top:20.0},
+    scale_unit: "point",
+    type: "a4"
+  },
+  caption: "受注月報",
+  font: {size:13.0},
+  group: {
+    page_break: true,
+    contents: [
+      {
+        size: {
+          initial: 45.0
+        },
+        caption: "ヘッダー",
+        every_page: true,
+        elements: [
+          {type:"text",layout:{x1:5.0,y1:5.0,x2:115.0,y2:25.0},font:{name:"gothic",size:20.0},halign:"left",text:"受注月報",valign:"center"},
+          {type:"text",layout:{x1:5.0,y1:30.0,x2:65.0,y2:45.0},text:"受注日：",valign:"center"},
+          {type:"field",layout:{x1:65.0,y1:30.0,x2:170.0,y2:45.0},exp:"global.startDate",formatter:{format:"yyyy年MM月dd日",type:"default"},mock:"t",valign:"center"},
+          {type:"text",layout:{x1:170.0,y1:30.0,x2:190.0,y2:45.0},halign:"center",text:"～",valign:"center"},
+          {type:"field",layout:{x1:190.0,y1:30.0,x2:295.0,y2:45.0},exp:"global.endDate",formatter:{format:"yyyy年MM月dd日",type:"default"},mock:"t",valign:"center"},
+          {type:"text",layout:{x1:595.0,y1:10.0,x2:695.0,y2:25.0},halign:"right",text:"PAGE：",valign:"center"},
+          {type:"text",layout:{x1:695.0,y1:10.0,x2:802.0,y2:25.0},halign:"right",text:"#{page_count}/#{page_count.total}",valign:"center"},
+          {type:"text",layout:{x1:595.0,y1:25.0,x2:695.0,y2:40.0},halign:"right",text:"印刷日付：",valign:"center"},
+          {type:"field",layout:{x1:695.0,y1:25.0,x2:802.0,y2:40.0},exp:"global.printDate",formatter:{format:"yyyy年MM月dd日",type:"default"},halign:"right",mock:"t",valign:"center"},
+          {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
+        ]
+      },
+      {
+        size: {
+          initial: 70.0
+        },
+        aggregate_src: true,
+        caption: "ボディ",
+        group: {
+          caption: "得意先グループ",
+          keys: ["得意先コード"],
+          contents: [
+            {
+              size: {
+                initial: 35.0
+              },
+              aggregate_src: true,
+              caption: "得意先ボディ",
+              elements: [
+                {type:"text",layout:{x1:5.0,y1:0.0,x2:65.0,y2:20.0},text:"得意先：",valign:"center"},
+                {type:"field",layout:{x1:65.0,y1:0.0,x2:105.0,y2:20.0},exp:".得意先コード",formatter:{format:"0000",type:"default"},halign:"left",mock:"s5",valign:"center"},
+                {type:"field",layout:{x1:105.0,y1:0.0,x2:280.0,y2:20.0},exp:".得意先略称",mock:"w12",valign:"center"},
+                {type:"text",layout:{x1:5.0,y1:20.0,x2:75.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"受注日\r\n",valign:"center"},
+                {type:"text",layout:{x1:75.0,y1:20.0,x2:165.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"state.first",valign:"center"},
+                {type:"text",layout:{x1:165.0,y1:20.0,x2:315.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"state.last",valign:"center"},
+                {type:"text",layout:{x1:315.0,y1:20.0,x2:390.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},shrink_to_fit:true,text:"state.group_first",valign:"center"},
+                {type:"text",layout:{x1:390.0,y1:20.0,x2:470.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},shrink_to_fit:true,text:"state.group_last",valign:"center"},
+                {type:"text",layout:{x1:470.0,y1:20.0,x2:560.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"得意先注番",valign:"center"},
+                {type:"text",layout:{x1:560.0,y1:20.0,x2:625.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"受注数量",valign:"center"},
+                {type:"text",layout:{x1:625.0,y1:20.0,x2:690.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"受注単価",valign:"center"},
+                {type:"text",layout:{x1:690.0,y1:20.0,x2:760.0,y2:35.0},color:"aliceblue",font:{size:11.0},halign:"left",rect:{fill_color:"darkgray"},text:"受注金額",valign:"center"}
+              ],
+              group: {
+                caption: "受注日グループ",
+                keys: ["受注日"],
+                layout: {
+                  y: 35.0
+                },
+                contents: [
+                  {
+                    aggregate_src: true,
+                    group: {
+                      caption: "明細グループ",
+                      detail: true,
+                      contents: [
+                        {
+                          size: {
+                            initial: 15.0
+                          },
+                          aggregate_src: true,
+                          caption: "明細",
+                          elements: [
+                            {type:"field",layout:{x1:5.0,y1:0.0,x2:75.0,y2:15.0},exp:".受注日",font:{size:10.0},formatter:{format:"yyyy/MM/dd",type:"default"},halign:"right",valign:"center",visibility_cond:"state.first",xls_format:"yyyy/MM/dd"},
+                            {type:"rect",layout:{x1:5.0,y1:0.0,x2:75.0,y2:15.0},customize:[{cond:"(not state.first)",exp:"true",property:"hide_top"},{cond:"(not state.last)",exp:"true",property:"hide_bottom"}]},
+                            {type:"field",layout:{x1:75.0,y1:0.0,x2:165.0,y2:15.0},exp:"state.first",font:{size:10.0},halign:"left",rect:{},valign:"center"},
+                            {type:"field",layout:{x1:165.0,y1:0.0,x2:315.0,y2:15.0},exp:"state.last",font:{size:10.0},halign:"left",rect:{},valign:"center"},
+                            {type:"field",layout:{x1:315.0,y1:0.0,x2:390.0,y2:15.0},exp:"state.group_first",font:{size:10.0},halign:"left",rect:{},valign:"center"},
+                            {type:"field",layout:{x1:390.0,y1:0.0,x2:470.0,y2:15.0},exp:"state.group_last",font:{size:10.0},halign:"right",rect:{},valign:"center"},
+                            {type:"field",layout:{x1:470.0,y1:0.0,x2:560.0,y2:15.0},exp:".得意先注番",font:{size:10.0},formatter:{type:"default"},halign:"left",rect:{},valign:"center"},
+                            {type:"field",layout:{x1:560.0,y1:0.0,x2:625.0,y2:15.0},exp:".受注数量",font:{size:10.0},formatter:{format:"#,##0",type:"default"},halign:"right",rect:{},valign:"center",xls_format:"#,##0"},
+                            {type:"field",layout:{x1:625.0,y1:0.0,x2:690.0,y2:15.0},exp:".受注単価",font:{size:10.0},formatter:{format:"#,##0.00",type:"default"},halign:"right",rect:{},valign:"center",xls_format:"#,##0.00"},
+                            {type:"field",layout:{x1:690.0,y1:0.0,x2:760.0,y2:15.0},exp:".受注金額",font:{size:10.0},formatter:{format:"#,##0",type:"default"},halign:"right",rect:{},valign:"center",xls_format:"#,##0"}
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              size: {
+                initial: 25.0
+              },
+              caption: "得意先フッター",
+              elements: [
+                {type:"text",layout:{x1:5.0,y1:0.0,x2:690.0,y2:15.0},font:{size:11.0},halign:"left",rect:{fill_color:"yellow"},text:"得意先計",valign:"center"},
+                {type:"field",layout:{x1:690.0,y1:0.0,x2:760.0,y2:15.0},exp:"sum.受注金額",font:{size:10.0},formatter:{format:"#,##0",type:"default"},halign:"right",mock:"d9",rect:{fill_color:"yellow"},valign:"center",xls_format:"#,##0"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        size: {
+          initial: 15.0
+        },
+        caption: "総合計",
+        elements: [
+          {type:"field",layout:{x1:690.0,y1:0.0,x2:760.0,y2:15.0},exp:"sum.受注金額",font:{size:10.0},formatter:{format:"#,##0",type:"default"},halign:"right",mock:"d9",rect:{fill_color:"aqua"},valign:"center",xls_format:"#,##0"},
+          {type:"text",layout:{x1:5.0,y1:0.0,x2:690.0,y2:15.0},font:{size:11.0},halign:"left",rect:{fill_color:"aqua"},text:"総合計",valign:"center"}
+        ]
+      }
+    ]
+  }
+}
