@@ -1,0 +1,52 @@
+{
+  version: 0,
+  paper: {
+    margin: {bottom:5.0,left:19.0,right:5.0,top:8.5},
+    scale_unit: "mm",
+    type: "a4"
+  },
+  font: {name:"gothic",size:16.0},
+  group: {
+    detail: true,
+    layout: {
+      size: 87.0,
+      locates: [
+        {x:0,y:0},
+        {x:0,y:46.6},
+        {x:0,y:93.2},
+        {x:0,y:139.8},
+        {x:0,y:186.4},
+        {x:0,y:233},
+        {x:86.4,y:0},
+        {x:86.4,y:46.6},
+        {x:86.4,y:93.2},
+        {x:86.4,y:139.8},
+        {x:86.4,y:186.4},
+        {x:86.4,y:233}
+      ]
+    },
+    contents: [
+      {
+        size: {
+          initial: 46.6
+        },
+        caption: "現品ラベル",
+        elements: [
+          {type:"field",layout:{x1:1.0,y1:5.0,x2:22.0,y2:9.0},exp:".日付",font:{name:"gothic",size:10.0},formatter:{format:"yyyy/MM/dd",type:"default"},mock:"t"},
+          {type:"text",layout:{x1:1.0,y1:10.0,x2:12.0,y2:15.0},font:{name:"gothic",size:10.0},text:"製番",valign:"center"},
+          {type:"field",layout:{x1:12.0,y1:10.0,x2:50.0,y2:15.0},exp:".製番",font:{name:"gothic",size:10.0},mock:"s18",shrink_to_fit:true,valign:"center"},
+          {type:"text",layout:{x1:1.0,y1:15.0,x2:12.0,y2:20.0},font:{name:"gothic",size:10.0},text:"品番",valign:"center"},
+          {type:"field",layout:{x1:12.0,y1:15.0,x2:50.0,y2:20.0},exp:".品番",font:{name:"gothic",size:10.0},mock:"s18",shrink_to_fit:true,valign:"center"},
+          {type:"barcode",layout:{x1:52.0,y1:5.0,x2:84.0,y2:37.0},barcode_type:"qrcode",exp:"(& .品番 ';' .入数)"},
+          {type:"text",layout:{x1:1.0,y1:38.0,x2:15.0,y2:45.0},font:{name:"gothic",size:16.0},text:"品名",valign:"center"},
+          {type:"field",layout:{x1:15.0,y1:38.0,x2:85.0,y2:45.0},exp:".品名",shrink_to_fit:true,valign:"center"},
+          {type:"text",layout:{x1:1.0,y1:20.0,x2:15.0,y2:27.0},font:{name:"gothic",size:16.0},text:"入数",valign:"center"},
+          {type:"field",layout:{x1:15.0,y1:20.0,x2:30.0,y2:27.0},exp:".入数",halign:"right",mock:"d4",shrink_to_fit:true,valign:"center"},
+          {type:"field",layout:{x1:30.0,y1:20.0,x2:45.0,y2:27.0},exp:".端数",halign:"center",shrink_to_fit:true,valign:"center"},
+          {type:"field",layout:{x1:15.0,y1:30.0,x2:40.0,y2:37.0},exp:".ページ",halign:"center",shrink_to_fit:true,valign:"center"},
+          {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
+        ]
+      }
+    ]
+  }
+}
