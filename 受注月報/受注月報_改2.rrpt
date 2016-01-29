@@ -26,7 +26,7 @@
           {type:"text",layout:{x1:595.0,y1:10.0,x2:695.0,y2:25.0},halign:"right",text:"PAGE：",valign:"center"},
           {type:"text",layout:{x1:695.0,y1:10.0,x2:802.0,y2:25.0},halign:"right",text:"#{page_count}/#{page_count.total}",valign:"center"},
           {type:"text",layout:{x1:595.0,y1:25.0,x2:695.0,y2:40.0},halign:"right",text:"印刷日付：",valign:"center"},
-          {type:"field",layout:{x1:695.0,y1:25.0,x2:802.0,y2:40.0},exp:"global.printDate",formatter:{format:"yyyy年MM月dd日",type:"default"},halign:"right",mock:"t",valign:"center"},
+          {type:"field",layout:{x1:695.0,y1:25.0,x2:802.0,y2:40.0},exp:"current_time",formatter:{format:"yyyy年MM月dd日",type:"default"},halign:"right",mock:"t",valign:"center"},
           {id:"__trial__",type:"text",layout:{y2:10},_:"この要素は手動で編集・削除しないで下さい",background:true,color:"gray",font:{size:10},text:"RapidReport http://rapidreport.systembase.co.jp/"}
         ]
       },
